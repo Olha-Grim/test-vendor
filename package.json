@@ -1,26 +1,46 @@
 {
-  "name": "foo",
-  "type": "module",
+  "name": "test-vendor",
+  "version": "1.0.0",
+  "description": "Vendor for design and UI components.",
+  "main": "dist/index.js",
   "source": "src/index.js",
-  "exports": "./dist/index.modern.js",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
-  "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch"
+  "module": "dist/index.js",
+  "author": {
+    "name": "Prea test",
+    "email": "developer@prea.eu"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Olha-Grim/test-vendor.git"
-  },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Olha-Grim/test-vendor/issues"
   },
   "homepage": "https://github.com/Olha-Grim/test-vendor#readme",
+  "license": "ISC",
+  "scripts": {
+    "dev": "microbundle-crl watch --no-compress --css-modules=false --format modern,cjs",
+    "build": "microbundle-crl build --no-sourcemap --css-modules=false  --format cjs",
+    "### TOOLS ###": "echo 1",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "test": "jest --watchAll"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olha-Grim/test-vendor.git"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ]
+  },
   "devDependencies": {
-    "microbundle": "^0.13.3"
+    "jest": "^26.6.3",
+    "jest-styled-components": "^7.0.3",
+    "microbundle-crl": "^0.13.11",
+    "prettier": "^2.2.1",
+    "tsd-jsdoc": "^2.5.0"
+  },
+  "dependencies": {
+    "microbundle-crl": "^0.13.11"
   }
 }
